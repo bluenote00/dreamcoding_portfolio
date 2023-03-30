@@ -97,7 +97,7 @@
     background-color: var(--color-nav);
     align-items: center;
     color: var(--color-white);
-    padding: 16px;
+    padding: 0 16px;
   }
 
   .navbar__menu {
@@ -128,7 +128,7 @@
 
   /* Home */
   #home {
-    background: url("imgs/back2.png") center/cover no-repeat;
+    background: url("imgs/back3.png") center/cover no-repeat;
     padding: 40px;
     text-align: center;
   }
