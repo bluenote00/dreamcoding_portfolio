@@ -15,3 +15,31 @@ document.addEventListener('scroll', () => {
     }
 });
 
+
+// navbar 메뉴 이동
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+    const target = event.target;
+    const link = target.dataset.link;
+    if (link == null) {
+        return;
+    }
+
+    console.log(event.target.dataset.link);
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Contact me 메뉴 이동
+const contact = document.querySelector('.home__contact');
+contact.addEventListener('click', (event) => {
+    const target = event.target;
+    const link = target.dataset.link;
+    if (link == null) {
+        return;
+    }
+
+    console.log(event.target.dataset.link);
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({ behavior: 'smooth' });
+});
