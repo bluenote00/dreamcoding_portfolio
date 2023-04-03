@@ -394,15 +394,18 @@
 
   /* Testimonial */
   #testimonials {
-    background-color: : var(--color-light-white);
+    background-color: var(--color-white);
   }
 
   .testimonials {
     margin : 40px;
+    text-align: center;
   }  
 
   .testimonial {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 32px 0;
   }
 
@@ -458,4 +461,8 @@
   .contact__links i:hover {
     transform: scale(1.1);
     color: var(--color-light-grey);
+  }
+
+  .contact__rights {
+    font-size: var(--font-small);
   }
