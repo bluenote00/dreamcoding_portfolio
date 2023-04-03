@@ -105,7 +105,7 @@
     background-color: var(--color-nav);
     align-items: center;
     color: var(--color-white);
-    padding: 0 16px;
+    padding: 5px 22px;
   }
 
   .navbar__menu {
@@ -132,6 +132,16 @@
     background-color: var(--color-white);
     color: var(--color-nav);
     border-radius: 4px;
+  }
+
+  .navbar__toggle-btn {
+    position: absolute;
+    right: 32px;
+    top: 10px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
+
   }
 
   /* Home */
@@ -465,4 +475,47 @@
 
   .contact__rights {
     font-size: var(--font-small);
+  }
+
+
+  /* 대부분의  셋팅은 위에서 해놓고 작은 화면에서 다르게 보이는 예외적인 부분만
+  최소한의 것들을 아래 미디어 스크린에서 셋팅한다*/
+  /* For below 768px screen width */
+  @media screen and (max-width: 768px) {
+    .navbar__toggle-btn {
+      display: block;
+    }
+    
+    #navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navbar__menu {
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+      display: none;
+    }
+
+    .about__majors {
+      flex-direction: column;
+    }
+
+    .major {
+      margin-bottom: 38px;
+    }
+
+    .skillset {
+      flex-direction: column;
+    }
+
+    .project {
+      flex-grow: 1;
+    }
+
+    .testimonial__avatar {
+      width: 120px;
+      height: 120px;
+    }
   }
