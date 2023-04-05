@@ -488,6 +488,27 @@
     font-size: var(--font-small);
   }
 
+  /* Scroll */
+  .arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 60px;
+    width: 55px;
+    height: 55px;
+    font-size: 40px;
+    color: var(--color-white);
+    border-radius: 50%;
+    background-color: var(--color-nav);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 300ms ease-in;
+  }
+
+  .arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
 
   /* 대부분의  셋팅은 위에서 해놓고 작은 화면에서 다르게 보이는 예외적인 부분만
   최소한의 것들을 아래 미디어 스크린에서 셋팅한다*/
@@ -529,4 +550,5 @@
       width: 120px;
       height: 120px;
     }
+
   }
