@@ -38,7 +38,7 @@ navbarToggleBtn.addEventListener('click', () => {
 
 
 // Contact me 메뉴 이동
-const homeContactBtn = document.querySelector('.home__contact');
+const homeContactBtn = document.querySelector('.home__contact');arrow
 homeContactBtn.addEventListener('click', () => {
     //const scrollTo = document.querySelector('#contact');
     //scrollTo.scrollIntoView({ behavior: 'smooth' });
@@ -58,6 +58,7 @@ document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeHeight;
 });project__descriptionworkBtnContainer
 
+
 // Show "arrow up" when scrolling down
 const arrowUp = document.querySelector('.arrow-up');
 document.addEventListener('scroll', () => {
@@ -73,50 +74,43 @@ arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
 
+
 // project selected
 const workBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
-    workBtnContainer.addEventListener('click', (e) => {
-        const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
-        // 필터에 값이 없으면 parent.node에 있는 값을 쓰겠다는 뜻
-        if(filter == null) {
-            return;
+workBtnContainer.addEventListener('click', (e) => {
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    // 필터에 값이 없으면 노드에 있는 값을 쓰겠다는 뜻
+    if (filter == null) {
+    return;
+    }
+
+    
+
+  // Remove selection from the previous item and select the new one
+    const active = document.querySelector('.category__btn.selected');
+    if (active != null) {
+    active.classList.remove('selected');
+    }
+    e.target.classList.add('selected');
+
+    projectContainer.classList.add('anim-out');
+    setTimeout(() => {
+    projects.forEach((project) => {
+        console.log(project.dataset.type);
+        if (filter === '*' || filter === project.dataset.type) {
+        project.classList.remove('invisible');
+        } else {
+        project.classList.add('invisible');
         }
-
-        //Remove selection
-        const active = document.querySelector('.category__btn.selected');
-        active.classList.remove('selected');
-        const target = 
-            e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
-        e.target.classList.add('selected');
-
-
-        projectContainer.classList.add('anim-out');
-        setTimeout(() => {
-            projects.forEach(project => {
-                console.log(project.dataset.type);
-                if (filter === '*' || filter === project.dataset.type) {
-                    project.classList.remove('invisible');
-                } else {
-                    project.classList.add('invisible');
-                }
-            });
-            projectContainer.classList.remove('anim-out');
-        }, 300);
-
-        /*
-        console.log(`------`);
-        for (let project of projects) {
-            console.log(project);
-        }
-
-        console.log(`------`);
-        let project;
-        for(let i =0; i < projects.length ; i++) {
-            project = projects[i];
-            console.log(project);
-        } 
-        */    
+    });
+    projectContainer.classList.remove('anim-out');
+    }, 300);
 });
+
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({ behavior: 'smooth' });
+};
 
