@@ -25,12 +25,17 @@ navbarMenu.addEventListener('click', (event) => {
         return;
     }
 
-    //console.log(event.target.dataset.link);
-    //const scrollTo = document.querySelector(link);
-    //scrollTo.scrollIntoView({ behavior: 'smooth' });
-
+    navbarMenu.classList.remove('open');
     scrollIntoView(link);
 });
+
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+});
+
 
 // Contact me 메뉴 이동
 const homeContactBtn = document.querySelector('.home__contact');
@@ -51,7 +56,7 @@ const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeHeight;
-});
+});project__descriptionworkBtnContainer
 
 // Show "arrow up" when scrolling down
 const arrowUp = document.querySelector('.arrow-up');
@@ -114,3 +119,4 @@ const projects = document.querySelectorAll('.project');
         } 
         */    
 });
+
